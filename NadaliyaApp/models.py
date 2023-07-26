@@ -58,12 +58,17 @@ class Profile_User(models.Model):
 class item(models.Model):
     user = models.ForeignKey(User_Registration, on_delete=models.SET_NULL, null=True, blank=True)
     name = models.CharField(max_length=255,blank=True,null=True)
-    description = models.CharField(max_length=255,blank=True,null=True)
+    description = models.TextField(max_length=255,blank=True,null=True)
     price = models.FloatField()
     rating = models.FloatField()
-    category=  models.CharField(max_length=255,blank=True,null=True)
+    category=  models.TextField(max_length=255,blank=True,null=True)
     buying_count = models.IntegerField()
     offer = models.FloatField()
-    image = models.ImageField(upload_to='images/', default='static/images/default.png')
-
+    image1 = models.FileField(upload_to='images/items', default='static/images/default.jpg')
+    image2 = models.FileField(upload_to='images/items', default='static/images/default.jpg')
+    image3 = models.FileField(upload_to='images/items', default='static/images/default.jpg')
+    image4 = models.FileField(upload_to='images/items', default='static/images/default.jpg')
+    
+    def __str__(self):
+        return self.name
     

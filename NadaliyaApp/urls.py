@@ -1,6 +1,8 @@
 from django.urls import re_path,path
 from . import views
 from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     #############################################################<<<<<<<<< LANDING MODULE >>>>>>>>>>>>>>>>>
@@ -26,5 +28,11 @@ urlpatterns = [
     
     path('user_home/',views.user_home,name='user_home'),
 
-    
+    ############################################################ <<<<<<<<< Items >>>>>>>>>>>>>>>>>
+
+  
+   path('product_view/<int:item_id>/', views.product_view, name='product_view'),
+
     ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

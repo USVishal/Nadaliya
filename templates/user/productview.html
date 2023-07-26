@@ -1,0 +1,62 @@
+{% extends 'user/user_base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="container ">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <img class="w-100" src="{{ item.image1.url }}" alt="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="row justify-content-center mb-5">
+                        <div class="col-3">
+                            <img src="{{ item.image1.url }}" width="50" class="img-thumbnail" alt="">
+                        </div>
+                        <div class="col-3">
+                            <img src="{{ item.image2.url }}" width="50" class="img-thumbnail" alt="">
+                        </div>
+                        <div class="col-3">
+                            <img src="{{ item.image3.url }}" width="50" class="img-thumbnail" alt="">
+                        </div>
+                        <div class="col-3">
+                            <img src="{{ item.image4.url }}" width="50" class="img-thumbnail" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 p-5  bg-light">
+            <h2 style="text-transform: uppercase;">{{ item.name }}<sup>
+                <p class="p-1 mb-1 bg-success text-white text-center rounded"  style="width: 50px; font-size: 11px;display: inline-block; "><b>{{ item.rating }}</b> <i class="fa fa-star"></i> </p>
+            </sup>
+            </h2>
+            <hr style="border: 5px solid blue;border-radius: 5px;">
+            <p>{{ item.description }}</p>
+            <h3>
+                <i class="fa fa-rupee"></i>{{ item.price }}
+                <p class="text-success h6" style="display: inline-block;">{{ item.offer }}% Off</p>
+            </h3>
+            
+            <p>Category :{{ item.category }}</p>
+            <p>Required Quantity : {{ item.buying_count }}</p>
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-6  mx-auto">
+                        <div class="">
+                            <a href="#" class="btn btn-primary " >Add To Cart</a>
+                            <a href="#" class="btn btn-primary" >Buy Now</a>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

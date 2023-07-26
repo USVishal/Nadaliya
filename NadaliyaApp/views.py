@@ -23,6 +23,7 @@ import string
 from django.http import HttpResponse
 from django.http import JsonResponse
 
+
 ######################################################################### <<<<<<<<<< LANDING MODULE >>>>>>>>>>>>>>
 def index(request):
     return render(request, 'index/index.html')
@@ -310,3 +311,9 @@ def logout(request):
         return redirect('/')
     else:
         return redirect('/')
+    
+
+def product_view(request, item_id):
+    item_instance = item.objects.get(id=item_id)
+    return render(request, 'user/productview.html', {'item': item_instance})
+
